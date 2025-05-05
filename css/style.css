@@ -8,24 +8,31 @@ b {
     padding: 8px;
 }
 
+/* Navbar Link Styling */
 a.nav-link {
-    font-size: 120%;
-    padding: 10%;
+    font-size: 1.1rem;
+    padding: 0.5rem 0.75rem; /* Use fixed units instead of % to prevent wrapping */
     margin-right: 5px;
-}
-
-nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark {
+    color: #ccc;
+    transition: color 0.3s ease;
+  }
+  
+  a.nav-link:hover {
+    color: #FFD700;
+  }
+  
+  /* Navbar Base Styling */
+  nav.navbar {
+    background: black;
     font-family: "Raleway", sans-serif;
-}
-
-body {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  /* Body Background */
+  body {
     background: black;
-}
-
-nav.navbar.navbar-expand-md.navbar-dark.fixed-top {
-    background: black;
-    /* padding: 20px; */
-}
+  }
+  
 
 .background {
     width: 100%;

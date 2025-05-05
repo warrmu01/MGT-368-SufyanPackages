@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sufyan Packages</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/index.js"></script>
+  <style>
+    .cube-container {
+      perspective: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .cube-container.small {
+      height: 160px;
+    }
+    .cube-container.medium {
+      height: 160px;
+    }
+    .cube-container.large {
+      height: 160px;
+    }
+    .cube-container.small .cube {
+      width: 80px;
+      height: 80px;
+    }
+    .cube-container.medium .cube {
+      width: 120px;
+      height: 120px;
+    }
+    .cube-container.large .cube {
+      width: 160px;
+      height: 160px;
+    }
+    .cube {
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate 10s infinite linear;
+    }
+    .cube-container.small .cube .face {
+      transform: translateZ(40px);
+    }
+    .cube-container.medium .cube .face {
+      transform: translateZ(60px);
+    }
+    .cube-container.large .cube .face {
+      transform: translateZ(80px);
+    }
+    .cube-container.small .cube .back   { transform: rotateY(180deg) translateZ(40px); }
+    .cube-container.small .cube .right  { transform: rotateY(90deg)  translateZ(40px); }
+    .cube-container.small .cube .left   { transform: rotateY(-90deg) translateZ(40px); }
+    .cube-container.small .cube .top    { transform: rotateX(90deg)  translateZ(40px); }
+    .cube-container.small .cube .bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+    .cube-container.medium .cube .back   { transform: rotateY(180deg) translateZ(60px); }
+    .cube-container.medium .cube .right  { transform: rotateY(90deg)  translateZ(60px); }
+    .cube-container.medium .cube .left   { transform: rotateY(-90deg) translateZ(60px); }
+    .cube-container.medium .cube .top    { transform: rotateX(90deg)  translateZ(60px); }
+    .cube-container.medium .cube .bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+    .cube-container.large .cube .back   { transform: rotateY(180deg) translateZ(80px); }
+    .cube-container.large .cube .right  { transform: rotateY(90deg)  translateZ(80px); }
+    .cube-container.large .cube .left   { transform: rotateY(-90deg) translateZ(80px); }
+    .cube-container.large .cube .top    { transform: rotateX(90deg)  translateZ(80px); }
+    .cube-container.large .cube .bottom { transform: rotateX(-90deg) translateZ(80px); }
+
+    .cube .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #8B4513;
+      opacity: 0.85;
+      border: 2px solid;
+    }
+    .ui-btn {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: monospace;
+    }
+    @keyframes rotate {
+      from { transform: rotateX(0) rotateY(0); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+    .box-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      height: 100%;
+    }
+    .cube-container + h4 {
+      margin-top: 2rem;
+    }
+    .mt-custom {
+      margin-top: 7rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="background" id="home">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <a class="navbar-brand" href="home.html">
+          <b>Sufyan</b> Packages
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" 
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="store.html">Store</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+  <div class="container mt-5 pt-5">
+    <div class="text-center">
+      <h2 style="color: #8B4513; font-family: monospace;">Choose Your Box</h2>
+      <p class="lead" style="color: white; font-family: monospace;">Select the size that fits your needs</p>
+    </div>
+
+    <div class="row justify-content-center text-center align-items-start">
+      <!-- Small Box -->
+      <div class="col-md-4 box-item">
+        <div class="cube-container small">
+          <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+        </div>
+        <h4 style="color: #8B4513;">Small Box</h4>
+        <p class="lead text-white">10x10x10 in<br>Rs. 50 each</p>
+        <button class="ui-btn btn btn-dark"><span>Add to Cart</span></button>
+      </div>
+
+      <!-- Medium Box -->
+      <div class="col-md-4 box-item">
+        <div class="cube-container medium">
+          <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+        </div>
+        <h4 style="color: #8B4513;">Medium Box</h4>
+        <p class="lead text-white">20x20x20 in<br>Rs. 100 each</p>
+        <button class="ui-btn btn btn-dark"><span>Add to Cart</span></button>
+      </div>
+
+      <!-- Large Box -->
+      <div class="col-md-4 box-item">
+        <div class="cube-container large">
+          <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+        </div>
+        <h4 style="color: #8B4513;">Large Box</h4>
+        <p class="lead text-white">30x30x30 in<br>Rs. 150 each</p>
+        <button class="ui-btn btn btn-dark"><span>Add to Cart</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-custom">
+    <a href="customsize.html" class="btn btn-lg" style="background-color: #8B4513; color: white; font-family: monospace; border-radius: 6px;">
+      Need a custom size? Customize your box →
+    </a>
+  </div>
+  <div class="container" id="contactus">
+    <div class="row" id="company-contactusinfo">
+    </div>
+  </div>
+  
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

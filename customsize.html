@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sufyan Packages</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/index.js"></script>
+    <meta name="description" content="Sufyan Packages provides high-quality, sustainable packaging solutions including carton boxes, stiffeners, and custom packaging for businesses across Pakistan.">
+    <meta name="keywords" content="Sufyan Packages, carton boxes Pakistan, packaging solutions, custom boxes, sustainable packaging, corrugated boxes">
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: monospace;
+    }
+    .cube-container {
+      perspective: 800px;
+      margin: 0 auto 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 250px;
+    }
+    .cube {
+      width: 100px;
+      height: 100px;
+      transform-style: preserve-3d;
+      animation: rotate 10s infinite linear;
+      position: relative;
+    }
+    .face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #8B4513;
+      opacity: 0.85;
+      border: 2px solid #fff;
+    }
+    .front  { transform: translateZ(50px); }
+    .back   { transform: rotateY(180deg) translateZ(50px); }
+    .right  { transform: rotateY(90deg) translateZ(50px); }
+    .left   { transform: rotateY(-90deg) translateZ(50px); }
+    .top    { transform: rotateX(90deg) translateZ(50px); }
+    .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+    @keyframes rotate {
+      from { transform: rotateX(0) rotateY(0); }
+      to   { transform: rotateX(360deg) rotateY(360deg); }
+    }
+    .slider-container {
+      text-align: center;
+      margin: 2rem auto;
+      width: 50%;
+    }
+    .email-form {
+      background: bisque;
+      color: black;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 50%;
+      margin: auto;
+    }
+    .email-form label {
+      font-weight: bold;
+    }
+    .mt-custom {
+      margin-top: 6rem;
+    }
+    .dimension-display {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #FFD700;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+    <div class="background" id="home">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+            <a class="navbar-brand" href="home.html">
+              <b>Sufyan</b> Packages
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" 
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="store.html">Store</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="aboutus.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contactus.html">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+        <div class="container pt-5 mt-custom">
+            <h2 class="text-center" style="color: #8B4513;">Customize Your Box</h2>
+            <p class="text-center">Use the slider to adjust the size of the box.</p>
+
+            <div class="cube-container mt-custom">
+            <div class="cube" id="cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+            </div>
+
+            <div class="dimension-display" id="dimensionDisplay">Box Dimensions: 100cm × 100cm × 100cm</div>
+
+
+            <div class="slider-container mt-5">
+            <input type="range" min="50" max="200" value="100" id="sizeSlider">
+            </div>
+
+            <div class="email-form mt-5">
+            <h4>Request Your Custom Box</h4>
+            <form>
+                <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Describe your custom box request"></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Send Request</button>
+            </form>
+            </div>
+        </div>
+        <div class="container" id="contactus">
+            <div class="row" id="company-contactusinfo">
+            </div>
+        </div>
+    </div>
+
+  <script>
+    const slider = document.getElementById('sizeSlider');
+    const cube = document.getElementById('cube');
+    slider.addEventListener('input', function () {
+      const size = slider.value;
+      cube.style.width = size + 'px';
+      cube.style.height = size + 'px';
+
+      const faces = cube.querySelectorAll('.face');
+      faces.forEach(face => face.style.transform = ''); // reset transforms
+
+      cube.querySelector('.front').style.transform = `translateZ(${size / 2}px)`;
+      cube.querySelector('.back').style.transform = `rotateY(180deg) translateZ(${size / 2}px)`;
+      cube.querySelector('.right').style.transform = `rotateY(90deg) translateZ(${size / 2}px)`;
+      cube.querySelector('.left').style.transform = `rotateY(-90deg) translateZ(${size / 2}px)`;
+      cube.querySelector('.top').style.transform = `rotateX(90deg) translateZ(${size / 2}px)`;
+      cube.querySelector('.bottom').style.transform = `rotateX(-90deg) translateZ(${size / 2}px)`;
+
+      dimensionDisplay.textContent = `Box Dimensions: ${size}cm × ${size}cm × ${size}cm`;
+
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
